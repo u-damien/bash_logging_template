@@ -9,9 +9,7 @@ INFO_COLOR='\033[1;32m'
 WARNING_COLOR='\033[1;33m'
 ERROR_COLOR='\033[1;31m' 
 
-# Alignement
 LEVEL_WIDTH=7
-MODULE_WIDTH=12
 
 log() {
     local level="$1"
@@ -23,10 +21,10 @@ log() {
         INFO) color="$INFO_COLOR" ;;
         WARNING) color="$WARNING_COLOR" ;;
         ERROR) color="$ERROR_COLOR" ;;
-        *) color="$BOLD" ;;  # Default bold
+        *) color="$BOLD" ;;
     esac
 
-    printf "$(date) ${WHITE}[${color}%-${LEVEL_WIDTH}s${WHITE}] [%-${MODULE_WIDTH}s]${RESET} %s\n" "$level" "$module" "$message"
+    printf "$(date) ${WHITE}[${color}%-${LEVEL_WIDTH}s${WHITE}] [%s]${RESET} %s\n" "$level" "$module" "$message"
 }
 
 # Demonstration of logging
